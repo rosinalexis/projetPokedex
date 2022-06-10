@@ -1,0 +1,6 @@
+<ion-text>
+  <span *ngFor="let s of data">
+    {{ s.stat.name }}
+    <ion-progress-bar color="{{ getColor( s.stat.name ) }}" [value]="(s.base_stat)/100"></ion-progress-bar>
+  </span>
+</ion-text>

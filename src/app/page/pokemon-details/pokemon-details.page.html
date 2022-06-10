@@ -1,0 +1,57 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>{{ pokemon?.name }}</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/pokedex"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card *ngIf="pokemon">
+    <img [src]="pokemon.sprites.other.home.front_default"/>
+
+    <ion-card-header>
+      <ion-card-title class="ion-text-uppercase"> {{ pokemon.name }}
+        <ion-icon name="star" color="warning"></ion-icon>
+        <ion-icon name="star" color="warning"></ion-icon>
+        <ion-icon name="star-outline"></ion-icon>
+      </ion-card-title>
+      
+      <ion-card-subtitle> weight:  {{ pokemon.weight }} / height: {{ pokemon.height }}</ion-card-subtitle>
+   
+      <ion-card-title class="ion-padding-vertical"> Abilities </ion-card-title>
+      
+      <ion-text color="tertiary">
+        <span *ngFor="let g of pokemon.abilities; let isLast = last">
+          {{ g.ability.name }} {{ !isLast ? ' . ' : '' }}
+        </span>
+      </ion-text>
+      
+      <!-- <ion-card-title class="ion-padding-vertical"> Moves </ion-card-title>
+      <ion-text color="success">
+        <span *ngFor="let m of pokemon.moves; let isLast = last">
+          <br> {{ m.move.name }} {{ !isLast ? ' . ' : '' }} 
+        </span>
+      </ion-text> -->
+    </ion-card-header>
+
+    <ion-card-content>
+      <ion-card-title class="ion-padding-vertical"> Types </ion-card-title>
+    
+      <ion-text>
+        <app-badge [data]="pokemon.types"></app-badge>
+      </ion-text>
+
+      <ion-card-title class="ion-padding-vertical"> Stats </ion-card-title>
+      
+      <app-stat [data]="pokemon.stats"></app-stat>
+      
+      experience
+      <ion-progress-bar [value]="(pokemon.base_experience)/100"></ion-progress-bar>
+      
+    </ion-card-content>
+  </ion-card>
+
+
+</ion-content>
