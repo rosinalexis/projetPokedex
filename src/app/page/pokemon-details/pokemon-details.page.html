@@ -1,6 +1,6 @@
 <ion-header>
   <ion-toolbar color="primary">
-    <ion-title>{{ pokemon?.name }}</ion-title>
+    <ion-title class="ion-text-capitalize">{{ pokemon?.name }}</ion-title>
     <ion-buttons slot="start">
       <ion-back-button defaultHref="/pokedex"></ion-back-button>
     </ion-buttons>
@@ -8,7 +8,7 @@
 </ion-header>
 
 <ion-content>
-  <ion-card *ngIf="pokemon">
+  <ion-card *ngIf="pokemon"  class="ion-padding-vertical">
     <img [src]="pokemon.sprites.other.home.front_default"/>
 
     <ion-card-header>
@@ -37,6 +37,7 @@
           <br> {{ m.move.name }} {{ !isLast ? ' . ' : '' }} 
         </span>
       </ion-text> -->
+      
     </ion-card-header>
 
     <ion-card-content>
@@ -57,10 +58,9 @@
   </ion-card>
 
   <ion-footer  class="ion-padding">
-    <ion-button  expand="block" >
+    <ion-button expand="block" >
      Add to PokeTeam
     </ion-button>
   </ion-footer>
-
 
 </ion-content>

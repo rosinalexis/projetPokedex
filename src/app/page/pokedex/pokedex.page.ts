@@ -32,6 +32,13 @@ export class PokedexPage implements OnInit {
     this.pokedexService.getPokemons(this.offsetValue).subscribe((res) => {
       loading.dismiss;
       this.pokemons.push(...res.results);
+
+      //TODO: Améliorer le système de double requête en une seule
+      this.pokemons.forEach((pokemon) => {
+        this.pokedexService.getPokemonsDetails(pokemon.name).subscribe((asw)=>{
+          pokemon['image'] =asw['sprites']['other']['home']['front_default'];
+        });
+      });
       event?.target.complete();
       if(event){
         event.target.disabled = res.next === null;

@@ -16,8 +16,6 @@ Il est écrit en HTML/CSS/JS via Angular + Ionic.
 ionic serve
 ```
 
-
-
 ### Les commandes de base de ionic
 
 ```bash
