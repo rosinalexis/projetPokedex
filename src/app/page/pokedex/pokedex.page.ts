@@ -36,7 +36,7 @@ export class PokedexPage implements OnInit {
       //TODO: Améliorer le système de double requête en une seule
       this.pokemons.forEach((pokemon) => {
         this.pokedexService.getPokemonsDetails(pokemon.name).subscribe((asw)=>{
-          pokemon['image'] =asw['sprites']['other']['home']['front_default'];
+          pokemon['image'] = asw['sprites']['other']['home']['front_default'];
         });
       });
       event?.target.complete();
@@ -48,7 +48,7 @@ export class PokedexPage implements OnInit {
   }
 
   filteredPokemon() {
-    return this.pokemons.filter((pokemon) =>pokemon.name.match(this.search));
+    return this.pokemons.filter((pokemon) =>pokemon.name.match(this.search.toLowerCase()));
   }
 
   loadMore(event: InfiniteScrollCustomEvent) {

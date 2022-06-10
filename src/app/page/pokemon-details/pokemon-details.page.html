@@ -15,11 +15,7 @@
       <ion-card-title class="ion-text-uppercase"> {{ pokemon.name }}
       </ion-card-title>
       <ion-text>
-        <ion-icon name="star" color="warning"></ion-icon>
-        <ion-icon name="star" color="warning"></ion-icon>
-        <ion-icon name="star" color="warning"></ion-icon>
-        <ion-icon name="star" color="warning"></ion-icon>
-        <ion-icon name="star" color="warning"></ion-icon>
+        <ion-icon name="star" color="warning" *ngFor="let u of pokemon.name.split('')"></ion-icon>
       </ion-text>
       <ion-card-subtitle> weight:  {{ pokemon.weight }} / height: {{ pokemon.height }}</ion-card-subtitle>
    
