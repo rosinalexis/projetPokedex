@@ -33,6 +33,9 @@ export class PokedexPage implements OnInit {
       loading.dismiss;
       this.pokemons.push(...res.results);
       event?.target.complete();
+      if(event){
+        event.target.disabled = res.next === null;
+      }
     });
 
   }
